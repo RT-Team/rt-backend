@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from urllib.parse import unquote
 from functools import wraps
+from urllib.parse import unquote
 
 from backend.rt_module.src.setting import CommandData, CommandRunData
 from backend import TypedSanic, Request, logger
@@ -100,7 +100,7 @@ def on_load(app: TypedSanic):
     @CoolDown(3, 1, MANYERR)
     @check_user
     async def get_help(request: Request, command_name: str):
-        if data := await app.ctx.rtc.request("get_help", unquote(command_name)):
+        if data := await app.ctx.rtc.request("get_help", command_name):
             return api("Ok", data.get(
                 await app.ctx.rtc.request("get_lang", request.ctx.user.id),
                 data.get("ja", "E404iSsct7423J4")
