@@ -131,7 +131,7 @@ def NewSanic(
                 )
             if len([char for char in request.path.split("/") if char]) != 1:
                 return wrap_html(request, SanicException("ここは天国、二人で一つに！", 403))
-        elif request.host in ("rt-bot.com", "localhost") or rawip:
+        elif request.host in ("rt.rext.dev", "localhost") or rawip:
             # ファイルが見つかればそのファイルを返す。
             # パスを準備する。
             path = request.path
