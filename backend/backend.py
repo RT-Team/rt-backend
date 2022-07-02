@@ -155,7 +155,7 @@ def NewSanic(
                     ))
                 else:
                     return await response_file(path)
-        elif request.host not in ("rocations.rt-bot.com", "rocations.localhost"):
+        elif request.host not in ("rocations.rt.rext.dev", "rocations.localhost"):
             return wrap_html(request, SanicException("ここは天国、二人で一つに！", 403))
 
     @app.exception(Exception)
